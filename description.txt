@@ -1,0 +1,10 @@
+Gin untuk HTTP framework
+Gorm untuk database akses
+
+Struktur folder di Go "Bebas"
+
+// input
+	// handler untuk melakukan sebuah fungi/bisnis proses, mapping input ke struct
+	// service untuk mendapatkan akses ke database, mapping ke struct user
+	// repository, save struct user ke db
+	// db

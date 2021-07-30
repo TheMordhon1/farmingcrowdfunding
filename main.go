@@ -1,6 +1,7 @@
 package main
 
 import (
+	"farmingcrowdfunding/auth"
 	"farmingcrowdfunding/handler"
 	"farmingcrowdfunding/user"
 	"fmt"
@@ -21,9 +22,12 @@ func main() {
 
 	userRepository := user.NewRepository(db)
 	userService := user.NewService(userRepository)
+	authService := auth.NewService()
+
+	fmt.Println(authService.GenerateToken(1001))
 
 	input := user.LoginInput{
-		Email:    "galih@gmail.com",
+		Email:    "dian@gmail.com",
 		Password: "password",
 	}
 	user, err := userService.Login(input)
@@ -35,7 +39,7 @@ func main() {
 	fmt.Println(user.Email)
 	fmt.Println(user.Name)
 
-	userHandler := handler.NewUserHandler(userService)
+	userHandler := handler.NewUserHandler(userService, authService)
 
 	router := gin.Default()
 	api := router.Group("/api/v1")

@@ -8,3 +8,4 @@ Struktur folder di Go "Bebas"
 	// service untuk mendapatkan akses ke database, mapping ke struct user
 	// repository, save struct user ke db
 	// db
+/Service untuk membuat logic dari suatu aplikasi

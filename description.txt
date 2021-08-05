@@ -9,3 +9,6 @@ Struktur folder di Go "Bebas"
 	// repository, save struct user ke db
 	// db
 /Service untuk membuat logic dari suatu aplikasi
+Entity untuk membuat field yg sama dengan field di database
+
+"&" adalah pointer

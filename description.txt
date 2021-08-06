@@ -2,6 +2,7 @@ Gin untuk HTTP framework
 Gorm untuk database akses
 
 Struktur folder di Go "Bebas"
+Urutan pembuatan dari Repository -> Service -> Handler -> Register semuanya di main.go
 
 // input
 	// handler untuk melakukan sebuah fungi/bisnis proses, mapping input ke struct
@@ -12,3 +13,6 @@ Struktur folder di Go "Bebas"
 Entity untuk membuat field yg sama dengan field di database
 
 "&" adalah pointer
+
+Logic untuk History Campaign : 
+1. Ambil id dari campaign selanjutnya dapat mengkases gambar campaign di tabel campaign_images

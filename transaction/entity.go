@@ -13,8 +13,9 @@ type Transaction struct {
 	Amount     int
 	Status     string
 	Code       string
-	User       user.User
-	Campaign   campaign.Campaign
+	PaymentURL string
+	User       user.User         //relasi dengan tabel user
+	Campaign   campaign.Campaign //relasi dengan tabel campaign
 	CreatedAt  time.Time
 	UpdatedAt  time.Time
 }

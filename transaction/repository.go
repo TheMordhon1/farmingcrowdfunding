@@ -9,6 +9,7 @@ type repository struct {
 type Repository interface {
 	GetByCampaignID(campaignID int) ([]Transaction, error)
 	GetByUserID(userID int) ([]Transaction, error)
+	GetByID(ID int) (Transaction, error)
 	Save(transaction Transaction) (Transaction, error)
 	Update(transaction Transaction) (Transaction, error)
 }
@@ -38,6 +39,18 @@ func (r *repository) GetByUserID(userID int) ([]Transaction, error) {
 	}
 
 	return transactions, nil
+}
+
+func (r *repository) GetByID(ID int) (Transaction, error) {
+	var transaction Transaction
+
+	// Tabel relasi untuk akses campaign images dari transaction
+	err := r.db.Where("id = ?", ID).Order("id desc").Find(&transaction).Error
+	if err != nil {
+		return transaction, err
+	}
+
+	return transaction, nil
 }
 
 func (s *repository) Save(transaction Transaction) (Transaction, error) {

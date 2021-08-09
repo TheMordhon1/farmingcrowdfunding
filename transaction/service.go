@@ -109,7 +109,6 @@ func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 	}
 
 	campaign, err := s.campaignRepository.FindByID(updatedTransaction.CampaignID)
-
 	if err != nil {
 		return err
 	}
@@ -122,8 +121,7 @@ func (s *service) ProcessPayment(input TransactionNotificationInput) error {
 		if err != nil {
 			return err
 		}
-
 	}
-	return nil
 
+	return nil
 }

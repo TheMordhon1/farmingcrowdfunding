@@ -97,9 +97,9 @@ func FormatTransaction(transaction Transaction) TransactionFormater {
 	formater.ID = transaction.ID
 	formater.CampaignID = transaction.CampaignID
 	formater.UserID = transaction.UserID
+	formater.Amount = transaction.Amount
 	formater.Status = transaction.Status
 	formater.Code = transaction.Code
-	formater.Amount = transaction.Amount
 	formater.PaymentURL = transaction.PaymentURL
 	return formater
 }

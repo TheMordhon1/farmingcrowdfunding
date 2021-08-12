@@ -42,9 +42,18 @@ func main() {
 	transactionHandler := handler.NewTransactionHandler(transactionService)
 
 	router := gin.Default()
-	router.Use(cors.Default())
+	/* CORS */
+
+	router.Use(cors.New(cors.Config{
+		AllowOrigins: []string{"http://localhost:3000"},
+		AllowMethods: []string{"GET", "PATCH", "POST", "DELETE"},
+		AllowHeaders: []string{"Authorization", "Content-Type"},
+	}))
 	router.Static("/images", "./images")
 	api := router.Group("/api/v1")
+
+	// FRONTEND_URL := os.Getenv("FRONTEND_URL")
+	// fmt.Println(FRONTEND_URL, "")
 
 	// End Points
 	api.POST("/users", userHandler.RegisterUser)

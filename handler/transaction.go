@@ -9,12 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// parameter di uri
-// tangkap parameter mapping ke input struct
-// panggil servicem, input struct sebagai parameter
-// service, berbekal campaign_id bisa panggil repo
-// repo mencari data transaction suatu campaign
-
 type transactionHandler struct {
 	service transaction.Service
 }
@@ -28,7 +22,7 @@ func (h *transactionHandler) GetCampaignTransactions(c *gin.Context) {
 
 	err := c.ShouldBindUri(&input)
 	if err != nil {
-		response := helper.APIResponse("Failed to get  campaign's transactions", http.StatusBadRequest, "error", nil)
+		response := helper.APIResponse("Failed to get campaign's transactions", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
@@ -39,14 +33,13 @@ func (h *transactionHandler) GetCampaignTransactions(c *gin.Context) {
 
 	transactions, err := h.service.GetTransactionsByCampaignID(input)
 	if err != nil {
-		response := helper.APIResponse("Failed to get  campaign's transactions", http.StatusBadRequest, "error", nil)
+		response := helper.APIResponse("Failed to get campaign's transactions", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
 
-	response := helper.APIResponse("Campaign's Transactions", http.StatusOK, "success", transaction.FormatCampaignTransactions(transactions))
+	response := helper.APIResponse("Campaign's transactions", http.StatusOK, "success", transaction.FormatCampaignTransactions(transactions))
 	c.JSON(http.StatusOK, response)
-
 }
 
 func (h *transactionHandler) GetUserTransactions(c *gin.Context) {
@@ -55,12 +48,12 @@ func (h *transactionHandler) GetUserTransactions(c *gin.Context) {
 
 	transactions, err := h.service.GetTransactionsByUserID(userID)
 	if err != nil {
-		response := helper.APIResponse("Failed to get  user's transactions", http.StatusBadRequest, "error", nil)
+		response := helper.APIResponse("Failed to get user's transactions", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
 
-	response := helper.APIResponse("User's Transactions", http.StatusOK, "success", transaction.FormatUserTransactions(transactions))
+	response := helper.APIResponse("User's transactions", http.StatusOK, "success", transaction.FormatUserTransactions(transactions))
 	c.JSON(http.StatusOK, response)
 }
 
@@ -75,6 +68,7 @@ func (h *transactionHandler) CreateTransaction(c *gin.Context) {
 
 		response := helper.APIResponse("Failed to create transaction", http.StatusUnprocessableEntity, "error", errorMessage)
 		c.JSON(http.StatusUnprocessableEntity, response)
+
 		return
 	}
 
@@ -87,22 +81,22 @@ func (h *transactionHandler) CreateTransaction(c *gin.Context) {
 	if err != nil {
 		response := helper.APIResponse("Failed to create transaction", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
+
 		return
 	}
 
 	response := helper.APIResponse("Success to create transaction", http.StatusOK, "success", transaction.FormatTransaction(newTransaction))
 	c.JSON(http.StatusOK, response)
-	return
 }
 
 func (h *transactionHandler) GetNotification(c *gin.Context) {
 	var input transaction.TransactionNotificationInput
 
 	err := c.ShouldBindJSON(&input)
-
 	if err != nil {
 		response := helper.APIResponse("Failed to process notification", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
+
 		return
 	}
 
@@ -110,6 +104,7 @@ func (h *transactionHandler) GetNotification(c *gin.Context) {
 	if err != nil {
 		response := helper.APIResponse("Failed to process notification", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
+
 		return
 	}
 

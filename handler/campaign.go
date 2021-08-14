@@ -117,7 +117,6 @@ func (h *campaignHandler) UpdateCampaign(c *gin.Context) {
 	}
 
 	currentUser := c.MustGet("currentUser").(user.User)
-
 	inputData.User = currentUser
 
 	updatedCampaign, err := h.service.UpdateCampaign(inputID, inputData)
@@ -129,8 +128,6 @@ func (h *campaignHandler) UpdateCampaign(c *gin.Context) {
 
 	response := helper.APIResponse("Success to update campaign", http.StatusOK, "success", campaign.FormatCampaign(updatedCampaign))
 	c.JSON(http.StatusOK, response)
-	return
-
 }
 
 func (h *campaignHandler) UploadImage(c *gin.Context) {

@@ -19,14 +19,14 @@ func NewRepository(db *gorm.DB) *repository {
 }
 
 func (r *repository) GetByCampaignID(campaignID int) ([]Transaction, error) {
-	var transaction []Transaction
+	var transactions []Transaction
 
-	err := r.db.Preload("User").Where("campaign_id = ?", campaignID).Order("id desc").Find(&transaction).Error
+	err := r.db.Preload("User").Where("campaign_id = ?", campaignID).Order("id desc").Find(&transactions).Error
 	if err != nil {
-		return transaction, err
+		return transactions, err
 	}
 
-	return transaction, nil
+	return transactions, nil
 }
 
 func (r *repository) GetByUserID(userID int) ([]Transaction, error) {
@@ -45,7 +45,7 @@ func (r *repository) GetByID(ID int) (Transaction, error) {
 	var transaction Transaction
 
 	// Tabel relasi untuk akses campaign images dari transaction
-	err := r.db.Where("id = ?", ID).Order("id desc").Find(&transaction).Error
+	err := r.db.Where("id = ?", ID).Find(&transaction).Error
 	if err != nil {
 		return transaction, err
 	}

@@ -81,7 +81,7 @@ func (s *service) UpdateCampaign(inputID GetCampaignDetailInput, inputData Creat
 	}
 
 	if campaign.UserID != inputData.User.ID {
-		return campaign, errors.New("not your Campaign")
+		return campaign, errors.New("not your campaign")
 	}
 
 	campaign.Name = inputData.Name

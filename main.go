@@ -46,7 +46,7 @@ func main() {
 
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"http://localhost:3000"},
-		AllowMethods: []string{"GET", "PATCH", "POST", "DELETE"},
+		AllowMethods: []string{"GET", "PUT", "PATCH", "POST", "DELETE"},
 		AllowHeaders: []string{"Authorization", "Content-Type"},
 	}))
 	router.Static("/images", "./images")

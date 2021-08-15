@@ -1,13 +1,13 @@
 package main
 
 import (
-	"farmingcrowdfunding/auth"
-	"farmingcrowdfunding/campaign"
-	"farmingcrowdfunding/handler"
-	"farmingcrowdfunding/helper"
-	"farmingcrowdfunding/payment"
-	"farmingcrowdfunding/transaction"
-	"farmingcrowdfunding/user"
+	"farmcrowdy/auth"
+	"farmcrowdy/campaign"
+	"farmcrowdy/handler"
+	"farmcrowdy/helper"
+	"farmcrowdy/payment"
+	"farmcrowdy/transaction"
+	"farmcrowdy/user"
 	"log"
 	"net/http"
 	"strings"
@@ -20,7 +20,7 @@ import (
 )
 
 func main() {
-	dsn := "root:@tcp(127.0.0.1:3306)/farmingcrowdfunding?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:@tcp(127.0.0.1:3306)/farmcrowdy?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {

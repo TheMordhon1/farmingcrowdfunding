@@ -1,7 +1,7 @@
 package payment
 
 import (
-	"farmingcrowdfunding/user"
+	"farmcrowdy/user"
 	"strconv"
 
 	midtrans "github.com/veritrans/go-midtrans"

@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"farmingcrowdfunding/auth"
-	"farmingcrowdfunding/helper"
-	"farmingcrowdfunding/user"
+	"farmcrowdy/auth"
+	"farmcrowdy/helper"
+	"farmcrowdy/user"
 	"fmt"
 	"net/http"
 

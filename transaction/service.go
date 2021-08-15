@@ -2,8 +2,8 @@ package transaction
 
 import (
 	"errors"
-	"farmingcrowdfunding/campaign"
-	"farmingcrowdfunding/payment"
+	"farmcrowdy/campaign"
+	"farmcrowdy/payment"
 	"strconv"
 )
 

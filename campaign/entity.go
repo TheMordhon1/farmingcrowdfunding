@@ -1,7 +1,7 @@
 package campaign
 
 import (
-	"farmingcrowdfunding/user"
+	"farmcrowdy/user"
 	"time"
 )
 

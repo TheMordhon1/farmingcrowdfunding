@@ -1,6 +1,6 @@
 package campaign
 
-import "farmingcrowdfunding/user"
+import "farmcrowdy/user"
 
 type GetCampaignDetailInput struct {
 	ID int `uri:"id" binding:"required"`

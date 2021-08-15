@@ -1,8 +1,8 @@
 package transaction
 
 import (
-	"farmingcrowdfunding/campaign"
-	"farmingcrowdfunding/user"
+	"farmcrowdy/campaign"
+	"farmcrowdy/user"
 	"time"
 )
 

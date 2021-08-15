@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"farmingcrowdfunding/helper"
-	"farmingcrowdfunding/transaction"
-	"farmingcrowdfunding/user"
+	"farmcrowdy/helper"
+	"farmcrowdy/transaction"
+	"farmcrowdy/user"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

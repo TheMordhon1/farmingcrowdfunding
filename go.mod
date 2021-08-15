@@ -1,4 +1,4 @@
-module farmingcrowdfunding
+module farmcrowdy
 
 go 1.16
 

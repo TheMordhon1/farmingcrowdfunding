@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"farmingcrowdfunding/campaign"
-	"farmingcrowdfunding/helper"
-	"farmingcrowdfunding/user"
+	"farmcrowdy/campaign"
+	"farmcrowdy/helper"
+	"farmcrowdy/user"
 	"fmt"
 	"net/http"
 	"strconv"
